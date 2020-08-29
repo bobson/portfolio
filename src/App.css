@@ -1,0 +1,10 @@
+body {
+  background-color: black;
+  font-family: "Raleway", sans-serif !important;
+  background: url(images/bg-1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background: cover;
+  -moz-background: cover;
+  -o-background: cover;
+  background: cover;
+}
