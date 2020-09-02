@@ -38,12 +38,7 @@ const Home = () => {
           SLOBODAN MARKOSKI
         </Typography>
         <Typography className={classes.subtitle} variant="h5">
-          <Typed
-            strings={["Responsive Web Development", "React.js", "Material UI"]}
-            backSpeed={40}
-            typeSpeed={40}
-            loop
-          />
+          <Typed strings={["Front End React Developer "]} typeSpeed={40} />
         </Typography>
       </div>
     </>

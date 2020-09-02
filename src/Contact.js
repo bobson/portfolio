@@ -3,6 +3,8 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Typed from "react-typed";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
+import emailjs from "emailjs-com";
+
 import MailIcon from "@material-ui/icons/Mail";
 
 import { TextField, Typography, Grid, Button } from "@material-ui/core/";
@@ -19,13 +21,25 @@ const InputField = withStyles({
     },
     "& label.MuiFormLabel-root": {
       color: "white"
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "green"
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "tan"
+      },
+      "&:hover fieldset": {
+        borderColor: "tan"
+      }
     }
   }
 })(TextField);
 
 const useStyles = makeStyles(() => ({
   root: {
-    height: "200%"
+    background: "rgb(0, 0, 0, 0.6)"
+    // opacity: "0.6"
   },
   button: {
     color: "tomato",
@@ -38,10 +52,10 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#0d0e12"
   },
   header: {
-    fontSize: "2.5rem",
+    fontSize: "1rem",
     color: "white",
     textAlign: "center",
-    marginTop: "30px"
+    padding: "30px 20px 20px 20px"
   },
   paragraph: {
     fontStyle: "italic",
@@ -63,16 +77,39 @@ const useStyles = makeStyles(() => ({
 
 const Contact = () => {
   const classes = useStyles();
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_w5ouio7",
+        "template_o6xpcxj",
+        e.target,
+        "user_feTz9iU1AQdh8eDOF14YF"
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
+  }
+
   return (
     <Grid
+      className={classes.root}
       container
       direction="column"
-      justify="space-around"
+      justify="center"
       alignItems="center"
     >
       <Grid item xs={12} md>
         <Typography className={classes.header} variant={"h4"}>
-          Let's work together
+          If you have questions about my process,
+          <br /> or would like to work together on a project, please reach out!
         </Typography>
         <Typography className={classes.paragraph} variant={"subtitle1"}>
           <Typed
@@ -85,20 +122,41 @@ const Contact = () => {
         <h1></h1>
       </Grid>
       <Grid item xs={12} md>
-        <form noValidate autoComplete="off">
-          <InputField id="name" label="Name" />
+        <form onSubmit={sendEmail} noValidate autoComplete="off">
+          <InputField
+            id="from_name"
+            name="from_name"
+            label="Name"
+            variant="outlined"
+          />
           <br />
-          <InputField id="email" label="Email" />
+          <br />
+          <InputField
+            id="from_email"
+            name="from_email"
+            label="Email"
+            variant="outlined"
+          />
+          <br />
+          <br />
+          <InputField
+            id="message"
+            name="message"
+            label="Message"
+            multiline
+            rows={4}
+            variant="outlined"
+          />
           <br />
           <br />
           <Button
-            href="mailto:bmarkoski@yahoo.com"
+            type="submit"
             className={classes.button}
             fullWidth={true}
             variant="outlined"
             endIcon={<MailIcon />}
           >
-            contact me
+            send
           </Button>
           <FormHelperText className={classes.helper}>
             bmarkoski@yahoo.com
