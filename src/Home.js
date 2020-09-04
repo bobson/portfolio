@@ -25,6 +25,9 @@ const useStyles = makeStyles(() => ({
   },
   particlesCanva: {
     position: "absolute"
+  },
+  footer: {
+    marginTop: "100px"
   }
 }));
 

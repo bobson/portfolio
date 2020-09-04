@@ -1,44 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Typed from "react-typed";
+import { TextField, Typography, Grid, Button } from "@material-ui/core/";
 import FormHelperText from "@material-ui/core/FormHelperText";
+
+import Typed from "react-typed";
 
 import emailjs from "emailjs-com";
 
-import MailIcon from "@material-ui/icons/Mail";
-
-import { TextField, Typography, Grid, Button } from "@material-ui/core/";
-
+import ConfirmSend from "./ConfirmSend";
 import Footer from "./Footer";
 
 const InputField = withStyles({
   root: {
     "& label.Mui-focused": {
-      color: "white"
+      color: "white",
     },
     "& input.MuiInputBase-input": {
-      color: "tan"
+      color: "tan",
+    },
+    "& .MuiOutlinedInput-multiline": {
+      color: "tan",
     },
     "& label.MuiFormLabel-root": {
-      color: "white"
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "green"
+      color: "white",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "tan"
+        borderColor: "tan",
       },
       "&:hover fieldset": {
-        borderColor: "tan"
-      }
-    }
-  }
+        borderColor: "tan",
+      },
+    },
+  },
 })(TextField);
 
 const useStyles = makeStyles(() => ({
   root: {
-    background: "rgb(0, 0, 0, 0.6)"
+    background: "rgb(0, 0, 0, 0.6)",
     // opacity: "0.6"
   },
   button: {
@@ -47,40 +47,42 @@ const useStyles = makeStyles(() => ({
     transition: "transform 0.3s ease-out",
     "&:hover": {
       transform: "translateY(8px)",
-      color: "green"
+      color: "green",
     },
-    backgroundColor: "#0d0e12"
+    backgroundColor: "#0d0e12",
   },
   header: {
-    fontSize: "1rem",
+    fontSize: "2.5rem",
     color: "white",
     textAlign: "center",
-    padding: "30px 20px 20px 20px"
+    padding: "30px 20px 20px 20px",
   },
   paragraph: {
     fontStyle: "italic",
     color: "tomato",
     textShadow: "2px 2px 1px #1f1f1f",
-    textAlign: "center"
+    textAlign: "center",
   },
   footer: {
     width: "50%",
-    marginTop: "50px"
+    marginTop: "50px",
   },
   helper: {
     color: "tan",
     marginTop: "10px",
     textAlign: "center",
-    fontSize: "1rem"
-  }
+    fontSize: "1rem",
+  },
 }));
 
 const Contact = () => {
   const classes = useStyles();
+  const [buttonText, setButtonText] = useState("hire me");
+  const [confirm, setConfirm] = useState(false);
 
-  function sendEmail(e) {
+  const sendEmail = (e) => {
     e.preventDefault();
-
+    setButtonText("sending...");
     emailjs
       .sendForm(
         "service_w5ouio7",
@@ -89,13 +91,18 @@ const Contact = () => {
         "user_feTz9iU1AQdh8eDOF14YF"
       )
       .then(
-        result => {
-          console.log(result.text);
+        () => {
+          setButtonText("hire me");
+          setConfirm(true);
         },
-        error => {
+        (error) => {
           console.log(error.text);
         }
       );
+  };
+
+  if (confirm) {
+    return <ConfirmSend path="confirm" />;
   }
 
   return (
@@ -108,8 +115,7 @@ const Contact = () => {
     >
       <Grid item xs={12} md>
         <Typography className={classes.header} variant={"h4"}>
-          If you have questions about my process,
-          <br /> or would like to work together on a project, please reach out!
+          Let's work together
         </Typography>
         <Typography className={classes.paragraph} variant={"subtitle1"}>
           <Typed
@@ -150,13 +156,13 @@ const Contact = () => {
           <br />
           <br />
           <Button
+            // onClick={changeButtonText}
             type="submit"
             className={classes.button}
             fullWidth={true}
             variant="outlined"
-            endIcon={<MailIcon />}
           >
-            send
+            {buttonText}
           </Button>
           <FormHelperText className={classes.helper}>
             bmarkoski@yahoo.com

@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
@@ -50,13 +49,6 @@ const Footer = () => {
         target="blank"
         label="Twitter"
         icon={<TwitterIcon />}
-      />
-      <BottomNavigationAction
-        className={classes.action}
-        href="https://www.instagram.com/bobi_slb/"
-        target="blank"
-        label="Instagram"
-        icon={<InstagramIcon />}
       />
     </BottomNavigation>
   );

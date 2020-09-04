@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
+
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import {
@@ -14,7 +15,7 @@ import {
   ListItemText,
   Grid,
   Tabs,
-  Tab
+  Tab,
 } from "@material-ui/core";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -33,7 +34,7 @@ const menuItems = [
   { listIcon: <HomeIcon />, listText: "Home", listPath: "/" },
   { listIcon: <InfoIcon />, listText: "About", listPath: "about" },
   { listIcon: <WorkIcon />, listText: "Portfolio", listPath: "portfolio" },
-  { listIcon: <MailIcon />, listText: "Contact", listPath: "contact" }
+  { listIcon: <MailIcon />, listText: "Contact", listPath: "contact" },
 ];
 
 export default function Navbar() {
@@ -56,7 +57,7 @@ export default function Navbar() {
     setOpen(false);
   };
 
-  const handleMessage = e => {
+  const handleMessage = (e) => {
     if (e.target.textContent === "Home") {
       setMessage("");
     } else {
@@ -80,7 +81,7 @@ export default function Navbar() {
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
+          [classes.appBarShift]: open,
         })}
       >
         <Toolbar>
@@ -119,7 +120,7 @@ export default function Navbar() {
         anchor="left"
         open={open}
         classes={{
-          paper: classes.drawerPaper
+          paper: classes.drawerPaper,
         }}
       >
         <div className={classes.drawerHeader}>
@@ -157,7 +158,7 @@ export default function Navbar() {
       </Drawer>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: open
+          [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
