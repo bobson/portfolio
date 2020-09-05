@@ -10,9 +10,9 @@ const useStyles = makeStyles({
   root: {
     "& .MuiBottomNavigationAction-root": {
       minWidth: 0,
-      maxWidth: 250
+      maxWidth: 250,
     },
-    backgroundColor: "inherit"
+    backgroundColor: "inherit",
   },
   action: {
     width: 60,
@@ -20,9 +20,9 @@ const useStyles = makeStyles({
     transition: "transform 0.3s ease-out",
     "&:hover": {
       transform: "translateY(8px)",
-      color: "tomato"
-    }
-  }
+      color: "tomato",
+    },
+  },
 });
 
 const Footer = () => {
@@ -30,6 +30,7 @@ const Footer = () => {
   return (
     <BottomNavigation className={classes.root}>
       <BottomNavigationAction
+        style={{ color: "rgb(0, 119, 181)" }}
         className={classes.action}
         href="https://www.linkedin.com/in/slobodan-markoski-93ab0517a/"
         target="blank"
@@ -37,6 +38,7 @@ const Footer = () => {
         icon={<LinkedInIcon />}
       />
       <BottomNavigationAction
+        style={{ color: "white" }}
         className={classes.action}
         href="https://github.com/bobson"
         target="blank"
@@ -44,6 +46,7 @@ const Footer = () => {
         icon={<GitHubIcon />}
       />
       <BottomNavigationAction
+        style={{ color: "rgb(8, 160, 233)" }}
         className={classes.action}
         href="https://twitter.com/bmarkoski"
         target="blank"

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import { TextField, Typography, Grid, Button } from "@material-ui/core/";
+import { Typography, Grid, Button } from "@material-ui/core/";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
 import Typed from "react-typed";
@@ -11,94 +10,55 @@ import emailjs from "emailjs-com";
 import ConfirmSend from "./ConfirmSend";
 import Footer from "./Footer";
 
-const InputField = withStyles({
-  root: {
-    "& label.Mui-focused": {
-      color: "white",
-    },
-    "& input.MuiInputBase-input": {
-      color: "tan",
-    },
-    "& .MuiOutlinedInput-multiline": {
-      color: "tan",
-    },
-    "& label.MuiFormLabel-root": {
-      color: "white",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "tan",
-      },
-      "&:hover fieldset": {
-        borderColor: "tan",
-      },
-    },
-  },
-})(TextField);
-
-const useStyles = makeStyles(() => ({
-  root: {
-    background: "rgb(0, 0, 0, 0.6)",
-    // opacity: "0.6"
-  },
-  button: {
-    color: "tomato",
-    borderColor: "tan",
-    transition: "transform 0.3s ease-out",
-    "&:hover": {
-      transform: "translateY(8px)",
-      color: "green",
-    },
-    backgroundColor: "#0d0e12",
-  },
-  header: {
-    fontSize: "2.5rem",
-    color: "white",
-    textAlign: "center",
-    padding: "30px 20px 20px 20px",
-  },
-  paragraph: {
-    fontStyle: "italic",
-    color: "tomato",
-    textShadow: "2px 2px 1px #1f1f1f",
-    textAlign: "center",
-  },
-  footer: {
-    width: "50%",
-    marginTop: "50px",
-  },
-  helper: {
-    color: "tan",
-    marginTop: "10px",
-    textAlign: "center",
-    fontSize: "1rem",
-  },
-}));
+import { InputField, useStyles } from "./ContactStyles";
 
 const Contact = () => {
   const classes = useStyles();
   const [buttonText, setButtonText] = useState("hire me");
   const [confirm, setConfirm] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errorName, setErrorName] = useState(false);
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setButtonText("sending...");
-    emailjs
-      .sendForm(
-        "service_w5ouio7",
-        "template_o6xpcxj",
-        e.target,
-        "user_feTz9iU1AQdh8eDOF14YF"
-      )
-      .then(
-        () => {
-          setButtonText("hire me");
-          setConfirm(true);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    if (name === "") {
+      setErrorName(true);
+      setErrorEmail(false);
+      setErrorMessage(false);
+    } else if (email === "" || !/.+@.+..+/.test(email)) {
+      setErrorName(false);
+      setErrorEmail(true);
+      setErrorMessage(false);
+    } else if (message === "") {
+      setErrorName(false);
+      setErrorEmail(false);
+      setErrorMessage(true);
+    } else {
+      setErrorName(false);
+      setErrorEmail(false);
+      setErrorMessage(false);
+      setButtonText("sending...");
+      emailjs
+        .sendForm(
+          "service_w5ouio7",
+          "template_o6xpcxj",
+          e.target,
+          "user_feTz9iU1AQdh8eDOF14YF"
+        )
+        .then(
+          () => {
+            setButtonText("hire me");
+            setConfirm(true);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
   };
 
   if (confirm) {
@@ -130,28 +90,40 @@ const Contact = () => {
       <Grid item xs={12} md>
         <form onSubmit={sendEmail} noValidate autoComplete="off">
           <InputField
+            error={errorName}
             id="from_name"
             name="from_name"
+            value={name}
             label="Name"
+            helperText={errorName ? "Please enter your name." : ""}
             variant="outlined"
+            onChange={(e) => setName(e.target.value)}
           />
           <br />
           <br />
           <InputField
+            error={errorEmail}
             id="from_email"
             name="from_email"
+            value={email}
             label="Email"
+            helperText={errorEmail ? "Please enter a valid email." : ""}
             variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <br />
           <br />
           <InputField
+            error={errorMessage}
             id="message"
             name="message"
+            value={message}
             label="Message"
+            helperText={errorMessage ? "Please type something here." : ""}
             multiline
             rows={4}
             variant="outlined"
+            onChange={(e) => setMessage(e.target.value)}
           />
           <br />
           <br />
