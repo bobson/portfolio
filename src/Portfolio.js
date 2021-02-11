@@ -3,6 +3,7 @@ import MediaCard from "./MediaCard";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+import BrainsterSpace from "./images/BrainsterSpace.jpg";
 import Covid from "./images/Covid-19.png";
 import Chat from "./images/ChatApp.png";
 import PetAdopt from "./images/PetAdopt.png";
@@ -22,6 +23,15 @@ export default function Portfolio() {
   const classes = useStyles();
   return (
     <Grid container justify="center">
+      <Grid className={classes.card} item xs={12} sm={4}>
+        <MediaCard
+          image={BrainsterSpace}
+          title="Brainster - Final Project"
+          description="Final Project of the Braister bootcamp build with React and Bootsrap"
+          demo="https://brainsterspace-slobodan.netlify.app/"
+          git="https://github.com/bobson/BrainsterSpace.git"
+        />
+      </Grid>
       <Grid className={classes.card} item xs={12} sm={4}>
         <MediaCard
           image={Covid}

@@ -3,6 +3,7 @@ import { TextField } from "@material-ui/core/";
 
 export const InputField = withStyles({
   root: {
+    width: "100%",
     "& label.Mui-focused": {
       color: "white",
     },

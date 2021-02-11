@@ -40303,7 +40303,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./images/bg-1.jpg":[["bg-1.0b444a8d.jpg","images/bg-1.jpg"],"images/bg-1.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@material-ui/core/esm/styles/createMuiStrictModeTheme.js":[function(require,module,exports) {
+},{"./images\\bg-1.jpg":[["bg-1.0b444a8d.jpg","images/bg-1.jpg"],"images/bg-1.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@material-ui/core/esm/styles/createMuiStrictModeTheme.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -95015,7 +95015,9 @@ function MediaCard(_ref) {
     target: "blank"
   }, "GitHub")));
 }
-},{"react":"../node_modules/react/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/Card":"../node_modules/@material-ui/core/esm/Card/index.js","@material-ui/core/CardActionArea":"../node_modules/@material-ui/core/esm/CardActionArea/index.js","@material-ui/core/CardActions":"../node_modules/@material-ui/core/esm/CardActions/index.js","@material-ui/core/CardContent":"../node_modules/@material-ui/core/esm/CardContent/index.js","@material-ui/core/CardMedia":"../node_modules/@material-ui/core/esm/CardMedia/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/esm/Button/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/esm/Typography/index.js"}],"images/Covid-19.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/Card":"../node_modules/@material-ui/core/esm/Card/index.js","@material-ui/core/CardActionArea":"../node_modules/@material-ui/core/esm/CardActionArea/index.js","@material-ui/core/CardActions":"../node_modules/@material-ui/core/esm/CardActions/index.js","@material-ui/core/CardContent":"../node_modules/@material-ui/core/esm/CardContent/index.js","@material-ui/core/CardMedia":"../node_modules/@material-ui/core/esm/CardMedia/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/esm/Button/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/esm/Typography/index.js"}],"images/BrainsterSpace.jpg":[function(require,module,exports) {
+module.exports = "/BrainsterSpace.cdf2445c.jpg";
+},{}],"images/Covid-19.png":[function(require,module,exports) {
 module.exports = "/Covid-19.3a3fd6eb.png";
 },{}],"images/ChatApp.png":[function(require,module,exports) {
 module.exports = "/ChatApp.7eea525e.png";
@@ -95040,6 +95042,8 @@ var _MediaCard = _interopRequireDefault(require("./MediaCard"));
 var _core = require("@material-ui/core");
 
 var _styles = require("@material-ui/core/styles");
+
+var _BrainsterSpace = _interopRequireDefault(require("./images/BrainsterSpace.jpg"));
 
 var _Covid = _interopRequireDefault(require("./images/Covid-19.png"));
 
@@ -95075,9 +95079,20 @@ function Portfolio() {
     xs: 12,
     sm: 4
   }, /*#__PURE__*/_react.default.createElement(_MediaCard.default, {
+    image: _BrainsterSpace.default,
+    title: "Brainster - Final Project",
+    description: "Final Project of the Braister bootcamp build with React and Bootsrap",
+    demo: "https://brainsterspace-slobodan.netlify.app/",
+    git: "https://github.com/bobson/BrainsterSpace.git"
+  })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    className: classes.card,
+    item: true,
+    xs: 12,
+    sm: 4
+  }, /*#__PURE__*/_react.default.createElement(_MediaCard.default, {
     image: _Covid.default,
     title: "Covid-19 Tracker",
-    description: "This project is a simple COVID-19 Virus tracker app build with React.js with all the latest features like hooks, styled with Materilal UI, visualization with Charts.js",
+    description: "This project is a simple COVID-19 Virus tracker\r app build with React.js with all the latest features like\r hooks, styled with Materilal UI, visualization with Charts.js",
     demo: "https://covidvirustracker.netlify.app/",
     git: "https://github.com/bobson/covid_19_tracker"
   })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -95088,7 +95103,7 @@ function Portfolio() {
   }, /*#__PURE__*/_react.default.createElement(_MediaCard.default, {
     image: _ChatApp.default,
     title: "Chat App",
-    description: "Chat App Build with Reac.js and socket.io, styled with Material UI",
+    description: "Chat App Build with Reac.js and socket.io,\r styled with Material UI",
     demo: "https://chat-appl.netlify.app/",
     git: "#"
   })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -95099,7 +95114,7 @@ function Portfolio() {
   }, /*#__PURE__*/_react.default.createElement(_MediaCard.default, {
     image: _PetAdopt.default,
     title: "Pet Adopt Site",
-    description: " Pet Adoption site, where you can choose from varius animals, and then adopt them. Pleace read README file on GitHub",
+    description: " Pet Adoption site, where you can choose from\r varius animals, and then adopt them.\r Pleace read README file on GitHub",
     demo: "https://pet-adopt.netlify.app/",
     git: "https://github.com/bobson/adopt-me"
   })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -95126,7 +95141,7 @@ function Portfolio() {
     git: "https://codepen.io/bobi-mar/pen/jOPmObM"
   })));
 }
-},{"react":"../node_modules/react/index.js","./MediaCard":"MediaCard.js","@material-ui/core":"../node_modules/@material-ui/core/esm/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","./images/Covid-19.png":"images/Covid-19.png","./images/ChatApp.png":"images/ChatApp.png","./images/PetAdopt.png":"images/PetAdopt.png","./images/budge_controller.png":"images/budge_controller.png","./images/PigGame.png":"images/PigGame.png"}],"About.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./MediaCard":"MediaCard.js","@material-ui/core":"../node_modules/@material-ui/core/esm/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","./images/BrainsterSpace.jpg":"images/BrainsterSpace.jpg","./images/Covid-19.png":"images/Covid-19.png","./images/ChatApp.png":"images/ChatApp.png","./images/PetAdopt.png":"images/PetAdopt.png","./images/budge_controller.png":"images/budge_controller.png","./images/PigGame.png":"images/PigGame.png"}],"About.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -95163,7 +95178,7 @@ var About = function About() {
   }, /*#__PURE__*/_react.default.createElement(_core.Typography, {
     className: classes.root,
     variant: "h6"
-  }, "\"Results-oriented Front-end Developer using React and Material-UI, dedicated to creating and optimizing interactive, user-friendly, and feature-rich websites. Leverage analytical skills and strong attention to detail in order to deliver original and efficient web solutions, provide technical knowledge, build new websites from start to finish, and successfully manage a team of other software professionals.\"")));
+  }, "\"Results-oriented Front-end Developer using React and other tools, dedicated to creating and optimizing interactive, user-friendly, and feature-rich websites. Leverage analytical skills and strong attention to detail in order to deliver original and efficient web solutions, provide technical knowledge, build new websites from start to finish.")));
 };
 
 var _default = About;
@@ -95392,6 +95407,7 @@ var _core = require("@material-ui/core/");
 
 var InputField = (0, _styles.withStyles)({
   root: {
+    width: "100%",
     "& label.Mui-focused": {
       color: "white"
     },
@@ -95743,7 +95759,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36517" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54310" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

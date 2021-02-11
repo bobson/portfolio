@@ -15,12 +15,11 @@ const About = () => {
     <Grid container justify="center">
       <Grid item xs={11} md={6}>
         <Typography className={classes.root} variant="h6">
-          "Results-oriented Front-end Developer using React and Material-UI,
+          "Results-oriented Front-end Developer using React and other tools,
           dedicated to creating and optimizing interactive, user-friendly, and
           feature-rich websites. Leverage analytical skills and strong attention
           to detail in order to deliver original and efficient web solutions,
-          provide technical knowledge, build new websites from start to finish,
-          and successfully manage a team of other software professionals."
+          provide technical knowledge, build new websites from start to finish.
         </Typography>
       </Grid>
     </Grid>
