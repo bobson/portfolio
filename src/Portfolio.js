@@ -9,6 +9,7 @@ import Chat from "./images/ChatApp.png";
 import PetAdopt from "./images/PetAdopt.png";
 import BudgeController from "./images/budge_controller.png";
 import PigGame from "./images/PigGame.png";
+import eCommerce from "./images/E-commerce.png";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -30,6 +31,15 @@ export default function Portfolio() {
           description="Final Project of the Braister bootcamp build with React and Bootsrap"
           demo="https://brainsterspace-slobodan.netlify.app/"
           git="https://github.com/bobson/BrainsterSpace.git"
+        />
+      </Grid>
+      <Grid className={classes.card} item xs={12} sm={4}>
+        <MediaCard
+          image={eCommerce}
+          title="React-ecommerce - In development"
+          description="E-coomerce site build with React and MaterialUI, stripe for payment and commercejs.com as a backend of products."
+          demo="https://re-commercejs.netlify.app/"
+          git="https://github.com/bobson/react-e-shop.git"
         />
       </Grid>
       <Grid className={classes.card} item xs={12} sm={4}>
