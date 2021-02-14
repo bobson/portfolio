@@ -6,6 +6,10 @@ const useStyles = makeStyles(() => ({
   root: {
     color: "white",
     textAlign: "center",
+    fontSize: "1.25rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.5rem",
+    },
   },
 }));
 
@@ -19,7 +23,7 @@ const About = () => {
           dedicated to creating and optimizing interactive, user-friendly, and
           feature-rich websites. Leverage analytical skills and strong attention
           to detail in order to deliver original and efficient web solutions,
-          provide technical knowledge, build new websites from start to finish.
+          provide technical knowledge, build new websites from start to finish."
         </Typography>
       </Grid>
     </Grid>

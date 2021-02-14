@@ -95176,7 +95176,11 @@ var useStyles = (0, _styles.makeStyles)(function () {
   return {
     root: {
       color: "white",
-      textAlign: "center"
+      textAlign: "center",
+      fontSize: "1.25rem",
+      "@media (min-width:600px)": {
+        fontSize: "1.5rem"
+      }
     }
   };
 });
@@ -95193,7 +95197,7 @@ var About = function About() {
   }, /*#__PURE__*/_react.default.createElement(_core.Typography, {
     className: classes.root,
     variant: "h6"
-  }, "\"Results-oriented Front-end Developer using React and other tools, dedicated to creating and optimizing interactive, user-friendly, and feature-rich websites. Leverage analytical skills and strong attention to detail in order to deliver original and efficient web solutions, provide technical knowledge, build new websites from start to finish.")));
+  }, "\"Results-oriented Front-end Developer using React and other tools, dedicated to creating and optimizing interactive, user-friendly, and feature-rich websites. Leverage analytical skills and strong attention to detail in order to deliver original and efficient web solutions, provide technical knowledge, build new websites from start to finish.\"")));
 };
 
 var _default = About;
@@ -95774,7 +95778,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33307" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34545" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
