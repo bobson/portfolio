@@ -96,7 +96,7 @@ export default function Hero() {
         {/* Social Links */}
         <div className="flex items-center gap-5 mt-2">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/bobson"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-white transition-colors duration-200"
@@ -104,7 +104,7 @@ export default function Hero() {
             <FaGithub size={22} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/slobodan-markoski-93ab0517a"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-white transition-colors duration-200"
@@ -112,7 +112,7 @@ export default function Hero() {
             <FaLinkedin size={22} />
           </a>
           <a
-            href="mailto:you@email.com"
+            href="mailto:bmarkoski@gmail.com"
             className="text-neutral-500 hover:text-white transition-colors duration-200"
           >
             <Mail size={22} />
