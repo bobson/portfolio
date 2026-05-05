@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-inter: "Inter", sans-serif;
@@ -13,8 +14,7 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .gradient-text {
@@ -24,8 +24,34 @@ body {
   background-clip: text;
 }
 
+/* Dark mode (default) */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode glass */
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Light mode — fix low-contrast utilities without touching component files */
+html:not(.dark) {
+  & .text-neutral-300 { color: #475569; }
+  & .text-neutral-400 { color: #475569; }
+  & .text-neutral-500 { color: #374151; }
+
+  /* White text inside glass cards, excluding colored CTA buttons */
+  & .glass .text-white:not([class*="bg-violet"]):not([class*="bg-cyan"]) { color: #0f172a; }
+  & .glass.text-white { color: #0f172a; }
+
+  /* Tag pills and subtle borders */
+  & .bg-white\/5  { background-color: rgba(0, 0, 0, 0.04); }
+  & .border-white\/10 { border-color: rgba(0, 0, 0, 0.08); }
+
+  /* Image placeholder and mobile nav dropdown backgrounds */
+  & .bg-neutral-900 { background-color: #f1f5f9; }
+  & .bg-neutral-950 { background-color: #f8fafc; }
 }

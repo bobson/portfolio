@@ -4,7 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
 import clsx from "clsx";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 const links = [
   { href: "/", label: "Home" },
@@ -25,55 +28,62 @@ export default function Navbar() {
           Slobodan.dev
         </Link>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={clsx(
-                  "text-sm font-medium transition-colors duration-200 hover:text-violet-400",
-                  pathname === link.href
-                    ? "text-violet-400"
-                    : "text-neutral-400",
-                )}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Links + Theme Toggle */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    "text-sm font-medium transition-colors duration-200 hover:text-violet-400",
+                    pathname === link.href
+                      ? "text-violet-400"
+                      : "text-neutral-400",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
 
-        {/* Mobile Toggle Button */}
-        <button
-          className="md:hidden relative w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-white transition-colors"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={clsx(
-              "absolute transition-all duration-300",
-              menuOpen
-                ? "opacity-100 rotate-0 scale-100"
-                : "opacity-0 rotate-90 scale-50",
-            )}
+        {/* Mobile right side: theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+
+          <button
+            className="relative w-8 h-8 flex items-center justify-center text-neutral-400 hover:text-white transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
           >
-            <X size={24} />
-          </span>
-          <span
-            className={clsx(
-              "absolute transition-all duration-300",
-              menuOpen
-                ? "opacity-0 -rotate-90 scale-50"
-                : "opacity-100 rotate-0 scale-100",
-            )}
-          >
-            <Menu size={24} />
-          </span>
-        </button>
+            <span
+              className={clsx(
+                "absolute transition-all duration-300",
+                menuOpen
+                  ? "opacity-100 rotate-0 scale-100"
+                  : "opacity-0 rotate-90 scale-50",
+              )}
+            >
+              <X size={24} />
+            </span>
+            <span
+              className={clsx(
+                "absolute transition-all duration-300",
+                menuOpen
+                  ? "opacity-0 -rotate-90 scale-50"
+                  : "opacity-100 rotate-0 scale-100",
+              )}
+            >
+              <Menu size={24} />
+            </span>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Dropdown — slides down below navbar */}
+      {/* Mobile Dropdown */}
       <div
         className={clsx(
           "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
