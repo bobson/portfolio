@@ -11,33 +11,24 @@ async function main() {
   await prisma.project.createMany({
     data: [
       {
-        title: "Portfolio Website",
+        title: "Strong Fit",
         description:
-          "A personal portfolio built with Next.js, Tailwind CSS, TypeScript and PostgreSQL.",
-        tags: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
-        githubUrl: "https://github.com/yourusername/portfolio",
-        liveUrl: "https://yourportfolio.vercel.app",
+          "A fitness web app built with TanStack Start — file-based routing, server functions, and TanStack Query for data fetching.",
+        tags: ["TanStack Start", "TypeScript", "Tailwind CSS", "Vitest"],
+        githubUrl: "https://github.com/bobson/strong-fit",
+        liveUrl: "https://strong-fit-silk.vercel.app/",
         featured: true,
         order: 1,
       },
       {
-        title: "E-Commerce App",
+        title: "Audiophile E-Commerce",
         description:
-          "A full-stack e-commerce platform with cart, auth, and Stripe payments.",
-        tags: ["React", "Node.js", "Stripe", "MongoDB"],
-        githubUrl: "https://github.com/yourusername/ecommerce",
-        liveUrl: "https://myshop.vercel.app",
+          "A Frontend Mentor e-commerce challenge — full cart, checkout flow with form validation, VAT/shipping calc, and localStorage persistence.",
+        tags: ["React", "TypeScript", "Vite", "CSS"],
+        githubUrl: "https://github.com/bobson/audiophile-ecommerce",
+        liveUrl: "https://venerable-stroopwafel-0c3729.netlify.app/",
         featured: true,
         order: 2,
-      },
-      {
-        title: "Weather Dashboard",
-        description:
-          "A weather app that shows forecasts using the OpenWeather API with charts.",
-        tags: ["React", "TypeScript", "REST API", "Chart.js"],
-        githubUrl: "https://github.com/yourusername/weather",
-        featured: false,
-        order: 3,
       },
     ],
   });
