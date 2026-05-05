@@ -30,6 +30,35 @@ async function main() {
         featured: true,
         order: 2,
       },
+      {
+        title: "Clinic Admin Panel",
+        description:
+          "A full-stack clinic management app. The frontend is built with Next.js and Apollo Client talking to a GraphQL API backed by Node.js, Express, and MongoDB — full CRUD for patients and appointments.",
+        tags: [
+          "Next.js",
+          "TypeScript",
+          "GraphQL",
+          "Apollo Client",
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Ant Design",
+        ],
+        githubUrl: "https://github.com/bobson/clinic-frontend",
+        liveUrl: "https://clinic-frontend-zeta.vercel.app/",
+        featured: true,
+        order: 3,
+      },
+      {
+        title: "Frontend Quiz App",
+        description:
+          "A Frontend Mentor challenge — multi-subject quiz with multiple-choice questions, score tracking, keyboard navigation, and a dark/light mode toggle.",
+        tags: ["React", "Vite", "CSS"],
+        githubUrl: "https://github.com/bobson/Frontend-quiz-app",
+        liveUrl: "https://bobson.github.io/Frontend-quiz-app/",
+        featured: false,
+        order: 4,
+      },
     ],
   });
 
